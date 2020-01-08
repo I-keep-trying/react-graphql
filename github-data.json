@@ -1,0 +1,139 @@
+{
+  "data": {
+    "viewer": {
+      "repositories": {
+        "edges": [
+          {
+            "node": {
+              "id": "MDEwOlJlcG9zaXRvcnkyMDYxNzQ2ODU=",
+              "name": "advanced-gatsby-shopify",
+              "url": "https://github.com/I-keep-trying/advanced-gatsby-shopify",
+              "descriptionHTML": "<div></div>",
+              "primaryLanguage": {
+                "name": "JavaScript",
+                "__typename": "Language"
+              },
+              "owner": {
+                "login": "I-keep-trying",
+                "url": "https://github.com/I-keep-trying",
+                "__typename": "User"
+              },
+              "stargazers": {
+                "totalCount": 1,
+                "__typename": "StargazerConnection"
+              },
+              "viewerHasStarred": true,
+              "watchers": { "totalCount": 1, "__typename": "UserConnection" },
+              "viewerSubscription": "SUBSCRIBED",
+              "__typename": "Repository"
+            },
+            "__typename": "RepositoryEdge"
+          },
+          {
+            "node": {
+              "id": "MDEwOlJlcG9zaXRvcnkyMzIxOTk1NzA=",
+              "name": "react_graphql",
+              "url": "https://github.com/I-keep-trying/react_graphql",
+              "descriptionHTML": "<div></div>",
+              "primaryLanguage": {
+                "name": "JavaScript",
+                "__typename": "Language"
+              },
+              "owner": {
+                "login": "I-keep-trying",
+                "url": "https://github.com/I-keep-trying",
+                "__typename": "User"
+              },
+              "stargazers": {
+                "totalCount": 0,
+                "__typename": "StargazerConnection"
+              },
+              "viewerHasStarred": false,
+              "watchers": { "totalCount": 2, "__typename": "UserConnection" },
+              "viewerSubscription": "SUBSCRIBED",
+              "__typename": "Repository"
+            },
+            "__typename": "RepositoryEdge"
+          },
+          {
+            "node": {
+              "id": "MDEwOlJlcG9zaXRvcnkyMzIxNzY1Mzg=",
+              "name": "hooks-graphql",
+              "url": "https://github.com/I-keep-trying/hooks-graphql",
+              "descriptionHTML": "<div></div>",
+              "primaryLanguage": {
+                "name": "JavaScript",
+                "__typename": "Language"
+              },
+              "owner": {
+                "login": "I-keep-trying",
+                "url": "https://github.com/I-keep-trying",
+                "__typename": "User"
+              },
+              "stargazers": {
+                "totalCount": 0,
+                "__typename": "StargazerConnection"
+              },
+              "viewerHasStarred": false,
+              "watchers": { "totalCount": 1, "__typename": "UserConnection" },
+              "viewerSubscription": "SUBSCRIBED",
+              "__typename": "Repository"
+            },
+            "__typename": "RepositoryEdge"
+          },
+          {
+            "node": {
+              "id": "MDEwOlJlcG9zaXRvcnkyMjYxNjAyOTg=",
+              "name": "custom-browser",
+              "url": "https://github.com/I-keep-trying/custom-browser",
+              "descriptionHTML": "<div></div>",
+              "primaryLanguage": { "name": "HTML", "__typename": "Language" },
+              "owner": {
+                "login": "I-keep-trying",
+                "url": "https://github.com/I-keep-trying",
+                "__typename": "User"
+              },
+              "stargazers": {
+                "totalCount": 0,
+                "__typename": "StargazerConnection"
+              },
+              "viewerHasStarred": false,
+              "watchers": { "totalCount": 1, "__typename": "UserConnection" },
+              "viewerSubscription": "SUBSCRIBED",
+              "__typename": "Repository"
+            },
+            "__typename": "RepositoryEdge"
+          },
+          {
+            "node": {
+              "id": "MDEwOlJlcG9zaXRvcnkyMjM2MTk0Nzc=",
+              "name": "react-usereducer-hook",
+              "url": "https://github.com/I-keep-trying/react-usereducer-hook",
+              "descriptionHTML": "<div></div>",
+              "primaryLanguage": {
+                "name": "JavaScript",
+                "__typename": "Language"
+              },
+              "owner": {
+                "login": "I-keep-trying",
+                "url": "https://github.com/I-keep-trying",
+                "__typename": "User"
+              },
+              "stargazers": {
+                "totalCount": 0,
+                "__typename": "StargazerConnection"
+              },
+              "viewerHasStarred": false,
+              "watchers": { "totalCount": 1, "__typename": "UserConnection" },
+              "viewerSubscription": "SUBSCRIBED",
+              "__typename": "Repository"
+            },
+            "__typename": "RepositoryEdge"
+          }
+        ],
+        "__typename": "RepositoryConnection"
+      },
+      "__typename": "User"
+    }
+  }
+}
