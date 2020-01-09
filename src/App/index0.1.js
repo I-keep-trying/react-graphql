@@ -1,156 +1,64 @@
-import React, { Component } from 'react'
-import axios from 'axios'
+import React from 'react'
 
-const TITLE = 'React GraphQL GitHub Client'
-
-const axiosGitHubGraphQL = axios.create({
-  baseURL: 'https://api.github.com/graphql',
-  headers: {
-    Authorization: `bearer ${process.env.REACT_APP_GITHUB_PERSONAL_ACCESS_TOKEN}`,
+/* const employees = [
+  {
+    employee1: 'employee1',
+    Details: [
+      {
+        title: 'Software Engineer',
+        EmployeeId: 451,
+      },
+    ],
   },
-})
+  {
+    employee2: 'employee2',
+    Details: [],
+  },
+  {
+    employee3: 'employee3',
+    Details: [
+      {
+        title: 'Test analyst',
+        EmployeeId: 453,
+      },
+    ],
+  },
+  {
+    employee4: 'employee4',
+    Details: [
+      {
+        title: 'Software engineer',
+        EmployeeId: 487,
+      },
+      {
+        title: 'Architect',
+        EmployeeId: 500,
+      },
+    ],
+  },
+] */
 
-const GET_ISSUES_OF_REPOSITORY = `
-  query ($organization: String!, $repository: String!) {
-    organization(login: $organization) {
-      name
-      url
-      repository(name: $repository) {
-        name
-        url
-        issues(last: 5) {
-          edges {
-            node {
-              id
-              title
-              url
-            }
-          }
-        }
-      }
-    }
-  }
-`
+const array1 = [
+  {
+    course: 'ABC',
+    skills: ['skill1', 'skill2'],
+  },
+  {
+    course: 'DEF',
+    skills: ['skill1'],
+  },
+  {
+    course: 'GHI',
+    skills: ['skill1', 'skill2', 'skill3'],
+  },
+]
 
-const getIssuesOfRepository = path => {
-  const [organization, repository] = path.split('/')
-
-  return axiosGitHubGraphQL.post('', {
-    query: GET_ISSUES_OF_REPOSITORY,
-    variables: { organization, repository },
-  })
-}
-
-const resolveIssuesQuery = queryResult => () => ({
-  organization: queryResult.data.data.organization,
-  errors: queryResult.data.errors,
-})
-
-
-
-
-const Repository = ({ repository }) => (
-  <div>
-    <p>
-      <strong>In Repository:</strong>
-      <a href={repository.url}>{repository.name}</a>
-    </p>
-
-    <ul>
-      {repository.issues.edges.map(foo => (
-        <li key={foo.node.id}>
-          <a href={foo.node.url}>{foo.node.title}</a>
-        </li>
-      ))}
-    </ul>
-  </div>
-)
-
-class App extends Component {
-  state = {
-    path: 'the-road-to-learn-react/the-road-to-learn-react',
-    organization: null,
-    errors: null,
-  }
-  componentDidMount() {
-    this.onFetchFromGitHub(this.state.path)
-  }
-  onChange = event => {
-    this.setState({ path: event.target.value })
-  }
-  onSubmit = event => {
-    this.onFetchFromGitHub(this.state.path)
-    event.preventDefault()
-  }
-
-  /*   copied before messing with query variables again!
-
-onFetchFromGitHub = () => {
-    axiosGitHubGraphQL
-      .post('', { query: GET_ISSUES_OF_REPOSITORY })
-      .then(result =>
-        this.setState(() => ({
-          organization: result.data.data.organization,
-          errors: result.data.errors,
-        }))
-      )
-  } */
-
-  onFetchFromGitHub = path => {
-    getIssuesOfRepository(path).then(queryResult =>
-      this.setState(resolveIssuesQuery(queryResult)),
-    )
-  }
-
-  render() {
-    const { path, organization, errors } = this.state
-
-    return (
-      <div>
-        <h1>{TITLE}</h1>
-
-        <form onSubmit={this.onSubmit}>
-          <label htmlFor="url">Show open issues for https://github.com/</label>
-          <input
-            id="url"
-            type="text"
-            value={path}
-            onChange={this.onChange}
-            style={{ width: '300px' }}
-          />
-          <button type="submit">Search</button>
-        </form>
-        <hr />
-
-        {organization ? (
-          <Organization organization={organization} errors={errors} />
-        ) : (
-          <p>No information yet ...</p>
-        )}
-      </div>
-    )
-  }
-}
-
-const Organization = ({ organization, errors }) => {
-  if (errors) {
-    return (
-      <p>
-        <strong>Something went wrong:</strong>
-        {errors.map(error => error.message).join(' ')}
-      </p>
-    )
-  }
-  return (
-    <div>
-      <p>
-        <strong>Issues from Organization:</strong>
-        <a href={organization.url}>{organization.name}</a>
-      </p>
-      <Repository repository={organization.repository} />
-    </div>
+const App = () => {
+  const res = array1.flatMap(({ course, skills }) =>
+    skills.map(skill => ({ course, skill }))
   )
+  console.log(res)
+  return <div>{res}</div>
 }
-export default App
 
-// the-road-to-graphql/react-graphql-github-vanilla
+export default App

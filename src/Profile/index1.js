@@ -1,54 +1,43 @@
 import React from 'react'
-import gql from 'graphql-tag'
-import { Query } from 'react-apollo'
+import { Query, Mutation } from 'react-apollo'
 import RepositoryList from '../Repository/index1'
 import Loading from '../Loading'
+import ErrorMessage from '../Error'
+import {GET_PRODUCTS} from '../graphql/GET_PRODUCTS'
+import MutationCheckoutCreate from '../graphql/MutationCheckoutCreate'
 
-const GET_PRODUCTS = gql`
-  {
-     products (first: 10) {
-    edges {
-      node {
-        id
-        title
-        description
-        images (first: 3) {
-          edges {
-            node {
-              id
-              originalSrc
-            }
-          }
-        }
-        variants (first: 10) {
-          edges {
-            node {
-              id
-              title
-            }
-          }
-        }
-      }
-    }
-  } 
-  }
-`
 
 const Profile = () => (
+  <>
   <Query query={GET_PRODUCTS}>
-    {({ data, loading }) => {
+    {({ data, loading, error }) => {
+      if (error) {
+        return <ErrorMessage error={error} />
+      }
       if (loading || !data) {
         return <Loading />
       }
 
-      return <RepositoryList repositories={data.products} />/* (
-        <div>
-        {data.products.title} 
-      </div>
-      ) */
-     
+      return <RepositoryList products={data.products} />
     }}
-    </Query>
+  </Query>
+        <Mutation mutation={MutationCheckoutCreate}>
+        {({ data, loading, error }) => {
+      if (error) {
+        return <ErrorMessage error={error} />
+      }
+      if (loading || !data) {
+        return <Loading />
+      }
+
+      return (
+        <div>
+      <pre>{JSON.stringify(data, null, 2)}</pre> 
+        </div>
+      )
+    }}
+          </Mutation>
+        </>
 )
 
 export default Profile

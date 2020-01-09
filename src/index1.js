@@ -4,16 +4,15 @@ import { ApolloProvider } from 'react-apollo'
 import { ApolloClient } from 'apollo-client'
 import { HttpLink } from 'apollo-link-http'
 import { InMemoryCache } from 'apollo-cache-inmemory'
-import * as serviceWorker from './serviceWorker'
-import App from './App/index'
+import App from './App/index1'
 import './style.css'
 
-const GITHUB_BASE_URL = 'https://api.github.com/graphql'
+const SHOPIFY_BASE_URL = `https://dev-store9.myshopify.com/api/graphql`
 
 const httpLink = new HttpLink({
-  uri: GITHUB_BASE_URL,
+  uri: SHOPIFY_BASE_URL,
   headers: {
-    'authorization': `Bearer ${process.env.REACT_APP_GITHUB_PERSONAL_ACCESS_TOKEN}`,
+    'X-Shopify-Storefront-Access-Token': `${process.env.REACT_APP_SHOPIFY_ACCESS_TOKEN}`,
   },
 })
 
@@ -31,5 +30,7 @@ ReactDOM.render(
   document.getElementById('root')
 )
 
-// registerServiceWorker()
-serviceWorker.unregister()
+/* ReactDOM.render(
+    <App />,
+  document.getElementById('root')
+) */

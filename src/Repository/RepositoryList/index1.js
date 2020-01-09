@@ -7,6 +7,6 @@ products.edges.map(({ node }) => (
     <div key={node.id} className="RepositoryItem">
       <RepositoryItem {...node} />
     </div>
-  ))
+  )).flat()
 
 export default RepositoryList

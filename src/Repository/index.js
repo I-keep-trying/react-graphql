@@ -1,3 +1,6 @@
-import RepositoryList from './RepositoryList';
+import RepositoryList from './RepositoryList'
+import REPOSITORY_FRAGMENT from '../graphql/fragments'
 
-export default RepositoryList;
+export { REPOSITORY_FRAGMENT }
+
+export default RepositoryList
